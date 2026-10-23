@@ -1,0 +1,462 @@
+[
+  {
+    "id": 1,
+    "empresa": "N&V Consultores, C.A.",
+    "nicho": "ingenieria",
+    "contacto": "Gerencia de Ingeniería: jmarinm@nyvconsultores.com · Admin: dagonzalez@nyvconsultores.com",
+    "email": "nvca@nyvconsultores.com",
+    "telefono": "+58 261 7591711",
+    "estado": "Correo Enviado",
+    "fecha": "2026-10-22"
+  },
+  {
+    "id": 2,
+    "empresa": "Nyquist Ingeniería C.A.",
+    "nicho": "ingenieria",
+    "contacto": "Celular: +58 414 6545126",
+    "email": "info@nyquist.com.ve",
+    "telefono": "+58 261 8151876",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 3,
+    "empresa": "Varsinca Ingenieros Consultores",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7593257",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 4,
+    "empresa": "Veninco Venezolana de Ingeniería de Consulta",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7231157",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 5,
+    "empresa": "Sampieri & Fortunato, S.A. (Samfor)",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 8144444",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 6,
+    "empresa": "Servicio Total de Ingeniería, C.A. (SETINCA)",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7979120",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 7,
+    "empresa": "Ingenieros Consultores y Asociados, C.A. (ICONSA)",
+    "nicho": "ingenieria",
+    "contacto": "Celular: +58 414 3612613",
+    "email": "iconsa.venezuela@gmail.com",
+    "telefono": "+58 261 6148263",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 8,
+    "empresa": "Ramírez & Sandoval Ingenieros Consultores, C.A.",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7923178",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 9,
+    "empresa": "PCI Ingenieros Consultores, S.A.",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "comercial@pciingenieros.com",
+    "telefono": "+58 414 6327348",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 10,
+    "empresa": "Thronson Internacional de Venezuela, C.A. (TIVENCA)",
+    "nicho": "ingenieria",
+    "contacto": "Elisa López — VP Administración y Servicios · Cel +58 414 6231784",
+    "email": "elisa.lopez@tivenca.com",
+    "telefono": "+58 261 4001200",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 11,
+    "empresa": "Zulia Industrial Constructions, C.A. (ZIC)",
+    "nicho": "ingenieria",
+    "contacto": "Daniel Santoni — Comercial",
+    "email": "infozic@zic.com.ve",
+    "telefono": "+58 414 1680944",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 12,
+    "empresa": "ICIS, C.A. (Ingeniería, Construcción, Inspección y Suministros)",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "contacto@grupoicis.com",
+    "telefono": "+58 412 3319326",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 13,
+    "empresa": "Manufacturas Especializadas, C.A. (MECA)",
+    "nicho": "ingenieria",
+    "contacto": "",
+    "email": "manufacturasespecializadas2019@gmail.com",
+    "telefono": "+58 422 6355867",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 14,
+    "empresa": "Serconett",
+    "nicho": "ingenieria",
+    "contacto": "Email vía directorio Petroguia (web propia caída)",
+    "email": "ventas@serconett.com",
+    "telefono": "+58 261 7979755",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 15,
+    "empresa": "Ingeniería y Desarrollo de Soluciones, C.A. (IDS Consultores)",
+    "nicho": "ingenieria",
+    "contacto": "Dominio propio no responde (email vía directorio Petroguia)",
+    "email": "migueluz@idsconsultores.com",
+    "telefono": "+58 261 7930911",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 16,
+    "empresa": "Centro Médico Docente Paraíso",
+    "nicho": "clinica",
+    "contacto": "Respaldo: +58 261 7004650 / +58 261 7000100",
+    "email": "",
+    "telefono": "+58 261 7401411",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 17,
+    "empresa": "Clínica Sierra Maestra C.A.",
+    "nicho": "clinica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7350414",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 18,
+    "empresa": "Policlínica San Francisco C.A.",
+    "nicho": "clinica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7630211",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 19,
+    "empresa": "Centro Médico Integral IZOT",
+    "nicho": "clinica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 414 6385869",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 20,
+    "empresa": "Clínica Tendencia Body",
+    "nicho": "clinica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 416 5037131",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 21,
+    "empresa": "Hogar Clínica San Rafael",
+    "nicho": "clinica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 424 6664733",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 22,
+    "empresa": "Centro Médico Madre Rafols, C.A.",
+    "nicho": "clinica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7544354",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 23,
+    "empresa": "Clínica Falcón",
+    "nicho": "clinica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7974922",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 24,
+    "empresa": "Centro Médico de Occidente",
+    "nicho": "clinica",
+    "contacto": "Gerencia",
+    "email": "cmogerencia@gmail.com",
+    "telefono": "+58 424 6920535",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 25,
+    "empresa": "Centro Médico de Ojos",
+    "nicho": "clinica",
+    "contacto": "Control de citas",
+    "email": "controldecitas@centromedicodeojos.com",
+    "telefono": "+58 261 7199002",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 26,
+    "empresa": "Clínica San Lucas",
+    "nicho": "clinica",
+    "contacto": "Información general",
+    "email": "informacioncmsl@gmail.com",
+    "telefono": "+58 414 6996206",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 27,
+    "empresa": "IDEO - Instituto Docente de Especialidades Oftalmológicas",
+    "nicho": "clinica",
+    "contacto": "Atención general",
+    "email": "contacto@ideo.com.ve",
+    "telefono": "+58 424 6802187",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 28,
+    "empresa": "Centro Médico Dr. Abdala Karame",
+    "nicho": "clinica",
+    "contacto": "Consultas",
+    "email": "consultas@cmdrkarame.org",
+    "telefono": "+58 414 6590827",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 29,
+    "empresa": "Centro Clínico Izerh",
+    "nicho": "clinica",
+    "contacto": "Información general",
+    "email": "informacion@izerh.net",
+    "telefono": "+58 261 7156906",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 30,
+    "empresa": "Centro Médico Dr. José Muñoz",
+    "nicho": "clinica",
+    "contacto": "Admisiones",
+    "email": "cmdrjm@gmail.com",
+    "telefono": "+58 412 7107056",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 31,
+    "empresa": "Obicon Automobile Technologies C.A. (Obicon Auto)",
+    "nicho": "mecanica",
+    "contacto": "Dominio obicon.com.ve registrado pero caído (no resuelve)",
+    "email": "",
+    "telefono": "+58 261 7411701",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 32,
+    "empresa": "Multiservicios y Trípodes Eberth C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7834813",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 33,
+    "empresa": "Autoservicio Múltiple Cándido P.C.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 3643385",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 34,
+    "empresa": "Cenaucas, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7830916",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 35,
+    "empresa": "Contratista T & M Servicios, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7357235",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 36,
+    "empresa": "Cauchos El Triángulo",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 414 3649616",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 37,
+    "empresa": "Taller Automotriz D & M, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 414 3320713",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 38,
+    "empresa": "Taller de Latonería y Pintura Car-Master C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 414 6125768",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 39,
+    "empresa": "Talleres Pacho, C.A.",
+    "nicho": "mecanica",
+    "contacto": "Alt: +58 426 4688903",
+    "email": "gunthereichner@hotmail.com",
+    "telefono": "+58 414 6025201",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 40,
+    "empresa": "Frenos y Repuestos Saulito, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "elisaul56@hotmail.com",
+    "telefono": "+58 414 6801605",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 41,
+    "empresa": "Tripoides Lino, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "tripoideslino@hotmail.com",
+    "telefono": "+58 414 3637672",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 42,
+    "empresa": "Cauchos y Tripoides La 13",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "cauchosla13@gmail.com",
+    "telefono": "+58 414 6302647",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 43,
+    "empresa": "Sensei Motors, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "senseimotors@hotmail.com",
+    "telefono": "+58 414 6279550",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 44,
+    "empresa": "Servicios Automotriz R&G, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "serviciosautomotrizrg@gmail.com",
+    "telefono": "+58 261 7973613",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 45,
+    "empresa": "Taller Recamar, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "recamar_1@hotmail.com",
+    "telefono": "+58 414 6350124",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  },
+  {
+    "id": 46,
+    "empresa": "Mara Service, C.A.",
+    "nicho": "mecanica",
+    "contacto": "",
+    "email": "maraservice_ca@hotmail.com",
+    "telefono": "+58 424 6792315",
+    "estado": "Pendiente",
+    "fecha": "2026-10-23"
+  }
+]

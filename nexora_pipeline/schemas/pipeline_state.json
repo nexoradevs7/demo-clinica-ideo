@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PipelineState Nexora",
+  "description": "Contrato de datos que fluye entre los agentes Scraper -> Ordenador -> Auditor -> QA.",
+  "type": "object",
+  "required": ["run_id", "timestamp", "prospectos", "mensajes", "tablero_html", "ordenador", "auditor", "qa"],
+  "properties": {
+    "run_id": { "type": "string", "description": "Identificador único de la ejecución (YYYYMMDD-HHMMSS)." },
+    "timestamp": { "type": "string", "description": "Fecha/hora ISO 8601 de la ejecución." },
+    "nichos_objetivo": {
+      "type": "array",
+      "items": { "enum": ["mecanica", "clinica", "ingenieria"] },
+      "description": "Los 3 nichos objetivo en Maracaibo."
+    },
+    "nichos_procesados": {
+      "type": "array",
+      "items": { "enum": ["mecanica", "clinica", "ingenieria"] }
+    },
+    "total_prospectos": { "type": "integer" },
+    "prospectos": {
+      "type": "array",
+      "description": "Lista de entrada normalizada (Agente 1).",
+      "items": {
+        "type": "object",
+        "required": ["nombre", "nicho", "telefono", "web"],
+        "properties": {
+          "nombre": { "type": "string" },
+          "nicho": { "enum": ["mecanica", "clinica", "ingenieria"] },
+          "telefono": { "type": "string", "description": "Formato internacional, ej. +58 414 123 4567." },
+          "web": { "enum": ["Sin Web", "Web Lenta", "No Móvil", "Con Web"] },
+          "url": { "type": "string", "description": "Web real del negocio (vacía si no tiene)." },
+          "email": { "type": "string" },
+          "contacto": { "type": "string", "description": "Nombre/rol del contacto directo (si se conoce)." },
+          "tipo_contacto": { "enum": ["directo", "atencion_general", "no_encontrado"] },
+          "fuente": { "type": "string", "description": "URL de la fuente de donde salió el dato." },
+          "estado_contacto": { "enum": ["pendiente", "correo_enviado", "whatsapp_enviado", "respondido"] },
+          "fecha_envio": { "type": "string", "description": "Fecha del último contacto enviado (YYYY-MM-DD)." }
+        }
+      }
+    },
+    "mensajes": {
+      "type": "array",
+      "description": "Salida del Agente 1: mensajes y enlaces wa.me.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nombre": { "type": "string" },
+          "nicho": { "enum": ["mecanica", "clinica", "ingenieria"] },
+          "mensaje": { "type": "string" },
+          "palabras": { "type": "integer" },
+          "enlace_wa": { "type": "string", "pattern": "^https://wa\\.me/" }
+        }
+      }
+    },
+    "tablero_html": { "type": "string", "description": "Ruta del tablero HTML interactivo." },
+    "ordenador": {
+      "type": "object",
+      "description": "Reporte del Agente 2 (linter/cleaner).",
+      "properties": {
+        "estado": { "enum": ["ok", "needs_fix"] },
+        "archivo": { "type": "string" },
+        "usa_tailwind": { "type": "boolean" },
+        "problemas": { "type": "array", "items": { "type": "string" } },
+        "advertencias": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "orden_carpetas": {
+      "type": "object",
+      "description": "Estructura de carpetas validada por el Agente 2."
+    },
+    "auditor": {
+      "type": "object",
+      "description": "Reporte del Agente 3 (rendimiento, SEO, SSL).",
+      "properties": {
+        "rendimiento_local": { "type": "object" },
+        "rendimiento_remoto": { "type": "object" },
+        "seo": { "type": "object" },
+        "ssl": { "type": "object" }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "description": "Reporte del Agente 4 (QA final y veredicto de entrega).",
+      "properties": {
+        "enlaces": { "type": "object" },
+        "lorem_ipsum_detectado": { "type": "boolean" },
+        "responsive": { "type": "boolean" },
+        "bloqueos": { "type": "array", "items": { "type": "string" } },
+        "listo_para_entregar": { "type": "boolean" }
+      }
+    }
+  }
+}

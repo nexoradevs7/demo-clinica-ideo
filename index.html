@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel de prospección B2B de Nexora para Maracaibo.">
+  <title>Nexora · Prospección B2B Maracaibo</title>
+  <style>
+    :root {
+      --verde: #25D366;
+      --verde-oscuro: #1ebe5b;
+      --tinta: #1f2937;
+      --gris: #6b7280;
+      --azul: #2563eb;
+      --fondo: #f6f7f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      margin: 0; padding: 24px 16px; background: var(--fondo); color: var(--tinta);
+    }
+    .contenedor {
+      max-width: 1100px; margin: 0 auto;
+      background: #ffffff; border-radius: 14px;
+      padding: 28px; box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    header { margin-bottom: 24px; }
+    header h1 { margin: 0 0 6px; font-size: 24px; letter-spacing: -0.02em; }
+    header h1 .logo { color: var(--verde-oscuro); }
+    header p { margin: 0 0 16px; color: var(--gris); }
+    .clave-acceso {
+      background: #eef6ff; border-left: 4px solid var(--azul);
+      padding: 12px 16px; border-radius: 6px; font-size: 13px;
+      margin-bottom: 16px; color: #1d4ed8;
+    }
+    .clave-acceso input {
+      padding: 6px 10px; margin-left: 8px; border: 1px solid #cbd5e1;
+      border-radius: 4px; font-size: 13px;
+    }
+    .clave-acceso button {
+      padding: 6px 14px; margin-left: 8px; border: none;
+      background: var(--azul); color: #fff; border-radius: 4px;
+      font-size: 13px; cursor: pointer;
+    }
+    .clave-acceso button:hover { background: #1d4ed8; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead th {
+      text-align: left; padding: 12px 14px; background: #f0f2f5;
+      color: #374151; font-weight: 600; border-bottom: 2px solid #e5e7eb;
+    }
+    tbody td { padding: 14px; border-bottom: 1px solid #eef0f3; vertical-align: middle; }
+    tbody tr:hover { background: #fafbfc; }
+    .empresa { font-weight: 600; }
+    .sub { color: var(--gris); font-size: 12px; margin-top: 2px; }
+    .estado {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 600;
+    }
+    .estado-Pendiente { background: #f1f5f9; color: #475569; }
+    .estado-Correo { background: #dcfce7; color: #166534; }
+    .estado-Respondió { background: #bfdbfe; color: #1e40af; }
+    .estado-Rechazado { background: #fee2e2; color: #991b1b; }
+    .btn-wa {
+      display: inline-block; background: var(--verde); color: #ffffff;
+      text-decoration: none; padding: 9px 14px; border-radius: 8px;
+      font-weight: 600; font-size: 13px; white-space: nowrap;
+      transition: background .15s ease, transform .05s ease;
+    }
+    .btn-wa:hover { background: var(--verde-oscuro); }
+    .btn-wa:active { transform: translateY(1px); }
+    .btn-accion {
+      display: inline-block; background: var(--azul); color: #ffffff;
+      text-decoration: none; padding: 7px 12px; border-radius: 6px;
+      font-size: 12px; margin-top: 6px; margin-right: 6px;
+      transition: background .15s ease;
+    }
+    .btn-accion:hover { background: #1d4ed8; }
+    .acciones { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    footer { margin-top: 24px; color: var(--gris); font-size: 13px; text-align: center; }
+    @media (max-width: 600px) {
+      .contenedor { padding: 16px; }
+      table { font-size: 12px; }
+      thead th, tbody td { padding: 8px 6px; }
+      .btn-wa { padding: 7px 10px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <header>
+      <h1><span class="logo">Nexora</span> · Prospección B2B Maracaibo</h1>
+      <p>Panel de seguimiento de prospectos. Cargado dinámicamente desde <code>clientes.json</code>.</p>
+      <div class="clave-acceso">
+        <strong>🔒 Clave de acceso de seguridad</strong>
+        <label for="clave-input">Clave:</label>
+        <input type="password" id="clave-input" placeholder="Introduce la clave para cargar datos">
+        <button onclick="verificarClave()">Acceder</button>
+      </div>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Nicho</th>
+          <th>Contacto</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-cuerpo">
+        <tr><td colspan="7" style="text-align:center; color:#9ca3af;">Introduce la clave y pulsa "Acceder" para cargar los prospectos.</td></tr>
+      </tbody>
+    </table>
+    <footer>Nexora · Panel de prospección B2B · Datos actualizados via <code>sync.py</code></footer>
+  </div>
+
+  <script>
+    // Configuración de seguridad: clave de acceso
+    const CLAVE_ACCESO = "NEXORA_PANEL_2026";
+
+    // Estado cargado (para evitar volver a pedir la clave en la misma sesión)
+    let claveValidada = false;
+
+    function verificarClave() {
+      const input = document.getElementById("clave-input").value;
+      if (input === CLAVE_ACCESO) {
+        claveValidada = true;
+        document.querySelector(".clave-acceso").innerHTML =
+          '<strong>🔓 Acceso concedido.</strong> Datos cargados correctamente.';
+        cargarClientes();
+      } else {
+        alert("❌ Clave incorrecta. No se cargarán los datos.");
+        document.getElementById("tabla-cuerpo").innerHTML =
+          '<tr><td colspan="7" style="text-align:center; color:#ef4444;">🔒 Acceso denegado. Verifica la clave.</td></tr>';
+      }
+    }
+
+    // Normalizar número de teléfono para WhatsApp (elimina +, espacios, guiones)
+    function normalizarTelefono(telefono) {
+      if (!telefono) return "";
+      return telefono.replace(/[^0-9+]/g, "").replace(/^(\+58)/, "58");
+    }
+
+    // Construir enlace WhatsApp
+    function construirWhatsApp(telefono, empresa) {
+      const num = normalizarTelefono(telefono);
+      if (!num) return "";
+      const texto = encodeURIComponent(
+        "Hola " + empresa + ", somos Nexora y nos gustaría hablar contigo sobre nuestros servicios."
+      );
+      return "https://wa.me/" + num + "?text=" + texto;
+    }
+
+    // Clase CSS según el estado
+    function estadoClase(estado) {
+      const map = {
+        "Pendiente": "estado-Pendiente",
+        "Correo Enviado": "estado-Correo",
+        "Respondió": "estado-Respondió",
+        "Rechazado": "estado-Rechazado"
+      };
+      return map[estado] || "estado-Pendiente";
+    }
+
+    // Cargar clientes desde clientes.json mediante fetch
+    async function cargarClientes() {
+      try {
+        const respuesta = await fetch("clientes.json", { cache: "no-store" });
+        if (!respuesta.ok) throw new Error("No se pudo cargar clientes.json");
+        const clientes = await respuesta.json();
+        const cuerpo = document.getElementById("tabla-cuerpo");
+        cuerpo.innerHTML = "";
+
+        clientes.forEach((c, index) => {
+          const fila = document.createElement("tr");
+
+          // Empresa + Nicho
+          const tdEmpresa = document.createElement("td");
+          const divEmpresa = document.createElement("div");
+          divEmpresa.className = "empresa";
+          divEmpresa.textContent = c.empresa;
+          tdEmpresa.appendChild(divEmpresa);
+
+          const divNicho = document.createElement("div");
+          divNicho.className = "sub";
+          divNicho.textContent = c.nicho || "";
+          tdEmpresa.appendChild(divNicho);
+          fila.appendChild(tdEmpresa);
+
+          // Contacto
+          const tdContacto = document.createElement("td");
+          tdContacto.textContent = c.contacto || "—";
+          fila.appendChild(tdContacto);
+
+          // Email
+          const tdEmail = document.createElement("td");
+          if (c.email && c.email.trim() !== "") {
+            const a = document.createElement("a");
+            a.href = "mailto:" + c.email;
+            a.textContent = c.email;
+            a.style.color = "#2563eb";
+            tdEmail.appendChild(a);
+          } else {
+            tdEmail.textContent = "—";
+            tdEmail.style.color = "#9ca3af";
+          }
+          fila.appendChild(tdEmail);
+
+          // Teléfono
+          const tdTel = document.createElement("td");
+          tdTel.textContent = c.telefono || "—";
+          fila.appendChild(tdTel);
+
+          // Estado
+          const tdEstado = document.createElement("td");
+          const spanEstado = document.createElement("span");
+          spanEstado.className = "estado " + estadoClase(c.estado);
+          spanEstado.textContent = c.estado || "Pendiente";
+          tdEstado.appendChild(spanEstado);
+          fila.appendChild(tdEstado);
+
+          // Acciones: WhatsApp + acciones rápidas
+          const tdAccion = document.createElement("td");
+          const divAcciones = document.createElement("div");
+          divAcciones.className = "acciones";
+
+          const waLink = construirWhatsApp(c.telefono, c.empresa);
+          if (waLink) {
+            const btnWa = document.createElement("a");
+            btnWa.className = "btn-wa";
+            btnWa.href = waLink;
+            btnWa.target = "_blank";
+            btnWa.rel = "noopener";
+            btnWa.textContent = "WhatsApp";
+            divAcciones.appendChild(btnWa);
+          }
+
+          // Acción rápida: Enviar correo
+          if (c.email && c.email.trim() !== "") {
+            const btnMail = document.createElement("a");
+            btnMail.className = "btn-accion";
+            btnMail.href = "mailto:" + c.email;
+            btnMail.textContent = "Enviar Correo";
+            divAcciones.appendChild(btnMail);
+          }
+
+          // Acción rápida: Ver web (si existe en contacto o email)
+          const btnWeb = document.createElement("a");
+          btnWeb.className = "btn-accion";
+          btnWeb.href = "#";
+          btnWeb.textContent = "Más →";
+          btnWeb.onclick = function(e) {
+            e.preventDefault();
+            const detalle =
+              "Empresa: " + c.empresa + "\n" +
+              "Nicho: " + c.nicho + "\n" +
+              "Contacto: " + c.contacto + "\n" +
+              "Email: " + c.email + "\n" +
+              "Teléfono: " + c.telefono + "\n" +
+              "Estado: " + c.estado + "\n" +
+              "Fecha: " + c.fecha;
+            alert(detalle);
+          };
+          divAcciones.appendChild(btnWeb);
+
+          tdAccion.appendChild(divAcciones);
+          fila.appendChild(tdAccion);
+
+          cuerpo.appendChild(fila);
+        });
+
+        // Actualizar footer con total
+        const footer = document.querySelector("footer");
+        footer.textContent = "Nexora · Panel de prospección B2B · " + clientes.length + " prospectos cargados";
+
+      } catch (error) {
+        console.error("Error al cargar datos:", error);
+        document.getElementById("tabla-cuerpo").innerHTML =
+          '<tr><td colspan="7" style="text-align:center; color:#ef4444;">' +
+          "Error al cargar datos: " + error.message +
+          "</td></tr>";
+      }
+    }
+
+    // Permitir pulsar Enter en el campo de clave
+    document.getElementById("clave-input").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") verificarClave();
+    });
+  </script>
+</body>
+</html>

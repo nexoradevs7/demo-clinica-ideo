@@ -1,0 +1,44 @@
+# Entornos virtuales
+env/
+venv/
+.venv/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Credenciales sensibles
+.env
+.env.*
+credentials.json
+secrets.json
+*.pem
+*.key
+*.p12
+*.crt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Bases de datos
+*.db
+*.sqlite3
+
+# Distribución
+dist/
+build/
+*.egg-info/
+.eggs/
