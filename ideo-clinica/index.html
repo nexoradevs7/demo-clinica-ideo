@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0F172A">
+  <title>Clínica IDEO · Líderes en Salud Visual y Cirugía Oftalmológica en Maracaibo</title>
+  <meta name="description" content="IDEO, Instituto Docente de Especialidades Oftalmológicas en Maracaibo. 20 años cuidando tu salud visual: oftalmología general, retina y vítreo, cirugía refractiva, oftalmopediatría y cirugía plástica ocular.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Clínica IDEO · Salud Visual en Maracaibo">
+  <meta property="og:description" content="20 años de trayectoria. Agende su cita con los especialistas oftalmológicos de Maracaibo.">
+  <meta property="og:locale" content="es_VE">
+  <link rel="canonical" href="https://www.ideo.com.ve/">
+
+  <!-- PREFETCH / PRECONNECT: paralelizados, no bloquean el render -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://wa.me">
+
+  <!-- FAVICON SVG inline: cero peticiones extra -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F172A'/%3E%3Cellipse cx='32' cy='32' rx='20' ry='12' fill='none' stroke='%2338BDF8' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%2338BDF8'/%3E%3C/svg%3E">
+
+  <!-- ============ TAILWIND (CDN) + CONFIG DE MARCA ============ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: { DEFAULT: '#0F172A', 800: '#1E3A8A' },
+            sky: { 50: '#F0F9FF', 400: '#38BDF8', 500: '#0284C7' },
+            paper: { DEFAULT: '#F8FAFC', 200: '#E2E8F0' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] },
+          boxShadow: {
+            soft: '0 10px 30px -12px rgba(15,23,42,.18)',
+            lift: '0 18px 45px -18px rgba(15,23,42,.35)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- ============ CSS CRÍTICO (inline, evita FOUC y CLS) ============ -->
+  <style>
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { -webkit-font-smoothing: antialiased; }
+    .media { position: relative; overflow: hidden; background: #E2E8F0; }
+    .img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .45s ease; }
+    .img.is-loaded { opacity: 1; }
+    .skeleton:not(.done)::after { content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(100deg, #E2E8F0 20%, #F1F5F9 40%, #E2E8F0 60%);
+      background-size: 220% 100%; animation: shimmer 1.4s linear infinite; }
+    @keyframes shimmer { to { background-position: -220% 0; } }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .glass { background: rgba(15,23,42,.82); backdrop-filter: saturate(140%) blur(10px); }
+    @supports not (backdrop-filter: blur(1px)) { .glass { background:#0F172A; } }
+    .fa-icono { display: inline-flex; align-items: center; justify-content: center; width: 1.25em; height: 1em; }
+    ::selection { background: #38BDF8; color: #0F172A; }
+    [id] { scroll-margin-top: 84px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+
+  <!-- ============ FONT AWESOME 6 (asíncrono, no bloqueante) ============ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- GOOGLE FONTS: carga asíncrona (media=print -> media=all) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
+
+  <!-- ============ DATOS ESTRUCTURADOS (SEO LOCAL / Rich Results) ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Clínica IDEO",
+    "alternateName": "Instituto Docente de Especialidades Oftalmológicas",
+    "url": "https://www.ideo.com.ve/",
+    "telephone": "+58 424-6802187",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 69A con Av. 17 - Baralt, Edificio IDEO",
+      "addressLocality": "Maracaibo",
+      "addressRegion": "Zulia",
+      "addressCountry": "VE"
+    },
+    "medicalSpecialty": "Ophthalmologic",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-paper text-ink antialiased transition-colors duration-300">
+
+  <!-- HEADER -->
+  <header class="glass fixed inset-x-0 top-0 z-40 border-b border-white/10">
+    <nav class="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 md:px-8" aria-label="Navegación principal">
+      <a href="#inicio" class="flex items-center gap-2.5 text-white" aria-label="IDEO, ir al inicio">
+        <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true" class="shrink-0">
+          <rect width="64" height="64" rx="14" fill="#1E3A8A"/>
+          <ellipse cx="32" cy="32" rx="19" ry="11.5" fill="none" stroke="#38BDF8" stroke-width="4"/>
+          <circle cx="32" cy="32" r="5.5" fill="#38BDF8"/>
+        </svg>
+        <span class="leading-tight">
+          <span class="block text-lg font-extrabold tracking-tight">IDEO</span>
+          <span class="block text-[10px] font-medium uppercase tracking-[0.16em] text-sky-400">Clínica Oftalmológica</span>
+        </span>
+      </a>
+
+      <ul class="ml-auto hidden items-center gap-1 text-sm font-medium text-slate-300 lg:flex">
+        <li><a class="rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white" href="#servicios">Especialidades</a></li>
+        <li><a class="rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white" href="#medicos">Cuerpo Médico</a></li>
+        <li><a class="rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white" href="#testimonios">Testimonios</a></li>
+        <li><a class="rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white" href="#noticias">Noticias</a></li>
+        <li><a class="rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white" href="#ubicacion">Ubicación</a></li>
+      </ul>
+
+      <a href="tel:+584246802187" class="ml-auto hidden items-center gap-2 rounded-xl border border-white/15 px-3.5 py-2 text-sm font-semibold text-white transition hover:border-sky-400 hover:text-sky-400 md:flex lg:ml-0">
+        <i class="fa-solid fa-phone fa-icono" aria-hidden="true"></i><span class="tabular-nums">+58 424-680 2187</span>
+      </a>
+
+      <a href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO." target="_blank" rel="noopener"
+         class="hidden rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-bold text-white shadow-soft transition hover:bg-sky-400 sm:block">
+        Agendar Cita
+      </a>
+
+      <button id="btn-menu" type="button" class="ml-1 rounded-lg p-2.5 text-white transition hover:bg-white/10 lg:hidden"
+              aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <i class="fa-solid fa-bars text-xl fa-icono" aria-hidden="true"></i>
+      </button>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div id="menu-movil" class="hidden border-t border-white/10 px-4 pb-4 pt-2 lg:hidden">
+      <ul class="flex flex-col text-[15px] font-medium text-slate-200">
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-white/10" href="#servicios">Especialidades</a></li>
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-white/10" href="#medicos">Cuerpo Médico</a></li>
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-white/10" href="#testimonios">Testimonios</a></li>
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-white/10" href="#noticias">Noticias</a></li>
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-white/10" href="#ubicacion">Ubicación y Horarios</a></li>
+        <li class="mt-2 grid grid-cols-2 gap-2">
+          <a href="tel:+584246802187" class="rounded-xl border border-white/20 px-3 py-3 text-center font-semibold text-white">Llamar</a>
+          <a href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO." target="_blank" rel="noopener"
+             class="rounded-xl bg-sky-500 px-3 py-3 text-center font-bold text-white">WhatsApp</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- HERO -->
+    <section class="relative isolate overflow-hidden bg-slate-50 pt-28 pb-16 md:pt-36 md:pb-24">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:px-8">
+        <div class="reveal">
+          <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-100 text-sky-800 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider">
+            <i class="fa-solid fa-award fa-icono" aria-hidden="true"></i> 20 años de trayectoria médica
+          </p>
+          <h1 class="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.4rem] text-slate-900">
+            Líderes en <span class="text-sky-600">Salud Visual</span> y Cirugía Oftalmológica en Maracaibo
+          </h1>
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-slate-700 md:text-lg">
+            El <strong class="font-semibold text-slate-900">Instituto Docente de Especialidades Oftalmológicas</strong> reúne
+            diagnóstico de alta precisión, tecnología de vanguardia y un equipo médico certificado para proteger
+            uno de sus sentidos más valiosos.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO." target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center gap-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3.5 shadow-md transition">
+              <i class="fa-brands fa-whatsapp text-xl fa-icono" aria-hidden="true"></i> Agendar Cita
+            </a>
+            <a href="tel:+584246802187"
+               class="inline-flex items-center justify-center gap-2.5 rounded-xl border border-slate-300 text-slate-800 bg-white hover:bg-slate-100 font-semibold px-6 py-3.5 transition">
+              <i class="fa-solid fa-phone fa-icono" aria-hidden="true"></i> Llamar ahora
+            </a>
+          </div>
+          <dl class="mt-12 grid max-w-md grid-cols-3 gap-4 border-t border-slate-200 pt-8">
+            <div><dd class="text-2xl font-extrabold text-blue-950">20+</dd><dt class="text-xs text-slate-500">Años de experiencia</dt></div>
+            <div><dd class="text-2xl font-extrabold text-blue-950">5</dd><dt class="text-xs text-slate-500">Especialidades</dt></div>
+            <div><dd class="text-2xl font-extrabold text-blue-950">+35K</dd><dt class="text-xs text-slate-500">Pacientes atendidos</dt></div>
+          </dl>
+        </div>
+
+        <div class="reveal hidden md:block">
+          <figure class="media skeleton overflow-hidden rounded-2xl shadow-lift ring-1 ring-white/15" style="aspect-ratio:4/3">
+            <img class="img" alt="Evaluación oftalmológica con equipos de alta precisión en IDEO" width="800" height="600" loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1551601651-2a3aa536746f?auto=format&fit=crop&w=700&q=55"
+                 srcset="https://images.unsplash.com/photo-1551601651-2a3aa536746f?auto=format&fit=crop&w=400&q=55 400w,
+                         https://images.unsplash.com/photo-1551601651-2a3aa536746f?auto=format&fit=crop&w=800&q=55 800w"
+                 sizes="(min-width:768px) 45vw, 100vw">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="bg-paper py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-sky-500">Nuestras especialidades</p>
+          <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Atención integral para tu salud visual</h2>
+          <p class="mt-4 text-base leading-relaxed text-slate-600">
+            Cinco áreas especializadas con diagnóstico preciso y tratamiento personalizado, bajo un mismo techo.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Oftalmología General -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-400 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-eye text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">Oftalmología General</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Evaluación visual completa, refracción, control de presión intraocular y diagnóstico de patologías oculares comunes.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20Oftalmolog%C3%ADa%20General." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Consultar <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <!-- Retina y Vítreo -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-400 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-circle-nodes text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">Retina y Vítreo</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Diagnóstico y tratamiento de degeneración macular, retinopatía diabética, desprendimiento de retina y hemorragias vítreas.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20Retina%20y%20V%C3%ADtreo." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Consultar <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <!-- Cirugía Refractiva -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-400 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-wand-magic-sparkles text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">Cirugía Refractiva</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Corrección definitiva de miopía, hipermetropía y astigmatismo con tecnología láser y lentes intraoculares.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20Cirug%C3%ADa%20Refractiva." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Consultar <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <!-- Oftalmopediatría -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-400 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-child-reaching text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">Oftalmopediatría</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Cuidado visual infantil: control de estrabismo, ambliopía (ojo perezoso) y detección temprana de defectos refractivos.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20Oftalmopediatr%C3%ADa." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Consultar <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <!-- Cirugía Plástica Ocular -->
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-sky-400 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-sparkles text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">Cirugía Plástica Ocular</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Blefaroplastia, corrección de párpados caídos, ptosis y procedimientos estéticos y funcionales de la zona periocular.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20informaci%C3%B3n%20sobre%20Cirug%C3%ADa%20Pl%C3%A1stica%20Ocular." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Consultar <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <!-- CTA card -->
+          <article class="reveal flex flex-col justify-between rounded-2xl bg-ink p-6 text-white shadow-lift ring-1 ring-white/10">
+            <div>
+              <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/20 text-sky-400">
+                <i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i>
+              </span>
+              <h3 class="text-lg font-bold">¿No sabes qué especialista necesitas?</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Escríbenos por WhatsApp y nuestro equipo te orientará hacia el especialista adecuado.
+              </p>
+            </div>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20necesito%20orientaci%C3%B3n%20para%20elegir%20un%20especialista." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-sky-400">
+              Solicitar orientación
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUERPO MÉDICO -->
+    <section id="medicos" class="bg-white py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-sky-500">Cuerpo médico</p>
+          <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Especialistas que confiarás con tus ojos</h2>
+          <p class="mt-4 text-base leading-relaxed text-slate-600">
+            Médicos oftalmólogos con formación universitaria, sub-especialidades y años de experiencia quirúrgica.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Dr. Miguel Brito -->
+          <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <div class="media skeleton" style="aspect-ratio:1/1">
+              <img class="img" alt="Retrato del Dr. Miguel Brito" width="640" height="640" loading="lazy" decoding="async"
+                   src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=55"
+                   srcset="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=300&q=55 300w,
+                           https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=55 600w"
+                   sizes="(min-width:1024px) 30vw, 90vw">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-ink">Dr. Miguel Brito</h3>
+              <p class="mt-1 text-sm font-semibold text-sky-500">Director Médico · Glaucoma y Catarata</p>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Más de 20 años de experiencia en cirugía de catarata y manejo integral del glaucoma.
+              </p>
+              <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20agendar%20cita%20con%20el%20Dr.%20Miguel%20Brito." target="_blank" rel="noopener"
+                 class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sky-500 px-4 py-2.5 text-sm font-bold text-sky-500 transition hover:bg-sky-500 hover:text-white">
+                <i class="fa-brands fa-whatsapp fa-icono" aria-hidden="true"></i> Contactar
+              </a>
+            </div>
+          </article>
+
+          <!-- Dr. Marco Ríos -->
+          <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <div class="media skeleton" style="aspect-ratio:1/1">
+              <img class="img" alt="Retrato del Dr. Marco Ríos" width="640" height="640" loading="lazy" decoding="async"
+                   src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=55"
+                   srcset="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=55 300w,
+                           https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=55 600w"
+                   sizes="(min-width:1024px) 30vw, 90vw">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-ink">Dr. Marco Ríos</h3>
+              <p class="mt-1 text-sm font-semibold text-sky-500">Cirugía de Retina y Vítreo</p>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Sub-especialista en cirugía vitreorretiniana y manejo de patologías maculares complejas.
+              </p>
+              <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20agendar%20cita%20con%20el%20Dr.%20Marco%20R%C3%ADos." target="_blank" rel="noopener"
+                 class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sky-500 px-4 py-2.5 text-sm font-bold text-sky-500 transition hover:bg-sky-500 hover:text-white">
+                <i class="fa-brands fa-whatsapp fa-icono" aria-hidden="true"></i> Contactar
+              </a>
+            </div>
+          </article>
+
+          <!-- Dr. Daniel Páez -->
+          <article class="reveal group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <div class="media skeleton" style="aspect-ratio:1/1">
+              <img class="img" alt="Retrato del Dr. Daniel Páez" width="640" height="640" loading="lazy" decoding="async"
+                   src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=55"
+                   srcset="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=300&q=55 300w,
+                           https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=55 600w"
+                   sizes="(min-width:1024px) 30vw, 90vw">
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-ink">Dr. Daniel Páez</h3>
+              <p class="mt-1 text-sm font-semibold text-sky-500">Cirugía Refractiva y Córnea</p>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                Especialista en cirugía láser refractiva, trasplantes de córnea y superficie ocular.
+              </p>
+              <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20agendar%20cita%20con%20el%20Dr.%20Daniel%20P%C3%A1ez." target="_blank" rel="noopener"
+                 class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-sky-500 px-4 py-2.5 text-sm font-bold text-sky-500 transition hover:bg-sky-500 hover:text-white">
+                <i class="fa-brands fa-whatsapp fa-icono" aria-hidden="true"></i> Contactar
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="bg-paper py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-sky-500">Testimonios</p>
+          <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Pacientes que recuperaron su visión</h2>
+          <div class="mt-4 flex items-center justify-center gap-2 text-sm text-slate-600">
+            <span class="flex text-amber-400" aria-hidden="true">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </span>
+            <span><strong class="text-ink">4.9 / 5</strong> · más de 300 reseñas de pacientes</span>
+          </div>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <figure class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+            <span class="mb-4 text-sky-400" aria-hidden="true"><i class="fa-solid fa-quote-left text-2xl"></i></span>
+            <blockquote class="flex-1 text-sm leading-relaxed text-slate-600">
+              «Me operaron de catarata y volví a leer sin lentes. El trato del personal fue impecable de principio a fin.»
+            </blockquote>
+            <figcaption class="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink-800 text-sm font-bold text-white">ML</span>
+              <span class="text-sm"><span class="block font-bold text-ink">María L.</span><span class="block text-xs text-slate-500">Cirugía de catarata</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+            <span class="mb-4 text-sky-500" aria-hidden="true"><i class="fa-solid fa-quote-left text-2xl"></i></span>
+            <blockquote class="flex-1 text-sm leading-relaxed text-slate-600">
+              «Llevé a mi hija por estrabismo. Diagnóstico claro, explicación detallada y resultados excelentes.»
+            </blockquote>
+            <figcaption class="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink-800 text-sm font-bold text-white">JR</span>
+              <span class="text-sm"><span class="block font-bold text-ink">José R.</span><span class="block text-xs text-slate-500">Oftalmopediatría</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
+            <span class="mb-4 text-sky-400" aria-hidden="true"><i class="fa-solid fa-quote-left text-2xl"></i></span>
+            <blockquote class="flex-1 text-sm leading-relaxed text-slate-600">
+              «Tenía miedo por mi retinopatía diabética. El seguimiento mensual me salvó la vista. Recomendados.»
+            </blockquote>
+            <figcaption class="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink-800 text-sm font-bold text-white">CG</span>
+              <span class="text-sm"><span class="block font-bold text-ink">Carmen G.</span><span class="block text-xs text-slate-500">Retina y vítreo</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICIAS -->
+    <section id="noticias" class="bg-white py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-sky-500">Noticias</p>
+          <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Actualizaciones y novedades</h2>
+          <p class="mt-4 text-base leading-relaxed text-slate-600">
+            Últimas noticias y publicaciones de Clínica IDEO.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-newspaper text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">DÍA MUNDIAL DE LA AMBLIOPÍA: IDEO SE UNE A LA CONCIENTIZACIÓN</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Clínica IDEO se une a la concientización sobre la ambliopía, un trastorno visual que puede afectar a niños y adultos.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20leer%20m%C3%A1s%20sobre%20el%20D%C3%ADa%20Mundial%20de%20la%20Ambliop%C3%ADa." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Leer más <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-newspaper text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">IDEO EN EL CONGRESO REDIELUZ 2026: LIDERANDO LA EXCELENCIA MÉDICA</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Clínica IDEO participa en el Congreso REDIELUZ 2026, destacándose como líderes en la excelencia médica.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20leer%20m%C3%A1s%20sobre%20el%20Congreso%20REDIELUZ%202026." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Leer más <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+
+          <article class="reveal group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+            <span class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-500 transition group-hover:bg-sky-500 group-hover:text-white">
+              <i class="fa-solid fa-newspaper text-xl" aria-hidden="true"></i>
+            </span>
+            <h3 class="text-lg font-bold text-ink">IDEO SE CONVIERTE EN EL PRIMER CENTRO ANFITRIÓN DE LA OPHTHALMOLOGY FOUNDATION</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+              Clínica IDEO se convierte en el primer centro anfitrión de la Ophthalmology Foundation, destacando su compromiso con la excelencia médica.
+            </p>
+            <a href="https://wa.me/584246802187?text=Hola%2C%20deseo%20leer%20m%C3%A1s%20sobre%20el%20centro%20anfitri%C3%B3n%20de%20la%20Ophthalmology%20Foundation." target="_blank" rel="noopener"
+               class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-sky-500 hover:text-ink">
+              Leer más <i class="fa-solid fa-arrow-right text-xs transition group-hover:translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section id="ubicacion" class="bg-white py-16 md:py-24">
+      <div class="mx-auto max-w-7xl px-4 md:px-8">
+        <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+          <div class="reveal">
+            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-sky-500">Visítanos</p>
+            <h2 class="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Nuestra sede en Maracaibo</h2>
+            <p class="mt-4 text-base leading-relaxed text-slate-600">
+              Estamos ubicados en el corazón de la ciudad, con fácil acceso y estacionamiento cercano.
+            </p>
+
+            <ul class="mt-8 space-y-5">
+              <li class="flex gap-4">
+                <span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-500"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-ink">Dirección</p>
+                  <p class="mt-0.5 text-sm leading-relaxed text-slate-600">Calle 69A con Av. 17 – Baralt,<br>Edificio IDEO, Maracaibo, Estado Zulia.</p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-500"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-ink">Horario de atención</p>
+                  <p class="mt-0.5 text-sm leading-relaxed text-slate-600">
+                    Lunes a Viernes: 8:00 a. m. – 6:00 p. m.<br>
+                    Sábados: 8:00 a. m. – 1:00 p. m.
+                  </p>
+                </div>
+              </li>
+              <li class="flex gap-4">
+                <span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-500"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                <div>
+                  <p class="text-sm font-bold text-ink">Teléfono y WhatsApp</p>
+                  <a href="tel:+584246802187" class="mt-0.5 block text-sm font-semibold text-sky-500 hover:text-ink">+58 424-680 2187</a>
+                </div>
+              </li>
+            </ul>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="https://www.google.com/maps/search/?api=1&query=Calle+69A+con+Av.+17+Baralt+Edificio+IDEO+Maracaibo"
+                 target="_blank" rel="noopener"
+                 class="inline-flex items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-sm font-bold text-white transition hover:bg-ink-800">
+                <i class="fa-solid fa-diamond-turn-right fa-icono" aria-hidden="true"></i> Cómo llegar
+              </a>
+              <a href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO." target="_blank" rel="noopener"
+                 class="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-sky-400">
+                <i class="fa-brands fa-whatsapp fa-icono" aria-hidden="true"></i> Agendar por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal overflow-hidden rounded-2xl border border-slate-200 shadow-soft">
+            <iframe
+              title="Mapa de ubicación de Clínica IDEO en Maracaibo"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-71.6550%2C10.6540%2C-71.6180%2C10.6780&amp;layer=mapnik"
+              class="h-[320px] w-full border-0 md:h-[420px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="flex items-center justify-between gap-3 border-t border-slate-200 bg-paper px-4 py-3 text-xs text-slate-500">
+              <span><i class="fa-solid fa-map-location-dot mr-1 text-sky-500" aria-hidden="true"></i> Maracaibo, Zulia — Venezuela</span>
+              <span class="font-semibold">Sector Baralt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-ink text-slate-300">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3 md:px-8">
+        <div>
+          <div class="flex items-center gap-2.5 text-white">
+            <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#1E3A8A"/>
+              <ellipse cx="32" cy="32" rx="19" ry="11.5" fill="none" stroke="#38BDF8" stroke-width="4"/>
+              <circle cx="32" cy="32" r="5.5" fill="#38BDF8"/>
+            </svg>
+            <span class="text-lg font-extrabold tracking-tight">IDEO</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-slate-400">
+            Instituto Docente de Especialidades Oftalmológicas.
+            20 años siendo líderes en salud visual y cirugía oftalmológica en Maracaibo.
+          </p>
+          <div class="mt-5 flex gap-3">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram de IDEO"
+               class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 transition hover:bg-sky-500 hover:text-white"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook de IDEO"
+               class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 transition hover:bg-sky-500 hover:text-white"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://wa.me/584246802187" target="_blank" rel="noopener" aria-label="WhatsApp de IDEO"
+               class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 transition hover:bg-sky-500 hover:text-white"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav aria-label="Enlaces del sitio">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-white">Navegación</h3>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><a class="transition hover:text-sky-400" href="#servicios">Especialidades</a></li>
+            <li><a class="transition hover:text-sky-400" href="#medicos">Cuerpo Médico</a></li>
+            <li><a class="transition hover:text-sky-400" href="#testimonios">Testimonios</a></li>
+            <li><a class="transition hover:text-sky-400" href="#noticias">Noticias</a></li>
+            <li><a class="transition hover:text-sky-400" href="#ubicacion">Ubicación y Horarios</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider text-white">Contacto</h3>
+          <ul class="mt-4 space-y-2.5 text-sm">
+            <li><i class="fa-solid fa-location-dot mr-2 text-sky-400" aria-hidden="true"></i> Calle 69A con Av. 17 – Baralt, Edificio IDEO, Maracaibo</li>
+            <li><i class="fa-solid fa-clock mr-2 text-sky-400" aria-hidden="true"></i> Lun–Vie 8:00–18:00 · Sáb 8:00–13:00</li>
+            <li><i class="fa-solid fa-phone mr-2 text-sky-400" aria-hidden="true"></i> <a class="tabular-nums hover:text-sky-400" href="tel:+584246802187">+58 424-680 2187</a></li>
+          </ul>
+          <a href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO." target="_blank" rel="noopener"
+             class="mt-5 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-sky-400">
+            <i class="fa-brands fa-whatsapp fa-icono" aria-hidden="true"></i> Agendar Cita Vía WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-slate-400 md:flex-row md:px-8">
+          <p>© 2026 Clínica IDEO · Instituto Docente de Especialidades Oftalmológicas. Todos los derechos reservados.</p>
+          <p>Maracaibo · Estado Zulia · Venezuela</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FLOATING BUTTON: WhatsApp (CTA principal) -->
+    <a id="wa-float" href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO."
+       target="_blank" rel="noopener"
+       class="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 rounded-full bg-sky-600 hover:bg-sky-700 text-white shadow-lift transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
+       aria-label="Agendar Cita Vía WhatsApp">
+      <i class="fa-brands fa-whatsapp text-2xl" aria-hidden="true"></i>
+      <span class="hidden text-sm sm:inline">Agendar Cita Vía WhatsApp</span>
+      <span class="absolute -right-1 -top-1 flex h-4 w-4" aria-hidden="true">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
+        <span class="relative inline-flex h-4 w-4 rounded-full border-2 border-white bg-sky-600"></span>
+      </span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+      (function () {
+        'use strict';
+
+        /* --- Menú móvil accesible --- */
+        var btn = document.getElementById('btn-menu');
+        var menu = document.getElementById('menu-movil');
+        if (btn && menu) {
+          btn.addEventListener('click', function () {
+            var abierto = menu.classList.toggle('hidden') === false;
+            btn.setAttribute('aria-expanded', String(abierto));
+          });
+          menu.addEventListener('click', function (e) {
+            if (e.target.closest('a')) {
+              menu.classList.add('hidden');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
+        /* --- Skeleton off cuando la imagen carga --- */
+        document.querySelectorAll('.media').forEach(function (m) {
+          var img = m.querySelector('.img');
+          if (!img) return;
+          var done = function () {
+            img.classList.add('is-loaded');
+            m.classList.add('done');
+          };
+          if (img.complete && img.naturalWidth > 0) done();
+          else img.addEventListener('load', done, { once: true });
+          img.addEventListener('error', function () { m.classList.add('done'); }, { once: true });
+        });
+
+        /* --- Reveal on scroll: IntersectionObserver (barato, sin listeners de scroll) --- */
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+            });
+          }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+          document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+        } else {
+          document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+        }
+
+        /* --- Header compacto al hacer scroll (rAF, sin layout thrash) --- */
+        var header = document.querySelector('header');
+        var lastY = -1;
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(function () {
+              var y = window.scrollY;
+              if (y !== lastY && header) {
+                header.classList.toggle('shadow-lift', y > 8);
+                lastY = y;
+              }
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      });
+    </script>
+
+  </body>
+</html>

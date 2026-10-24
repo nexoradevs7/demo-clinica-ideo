@@ -1,0 +1,141 @@
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-ink text-slate-300">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-3 md:px-8">
+    <div>
+      <div class="flex items-center gap-2.5 text-white">
+        <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1E3A8A"/>
+          <ellipse cx="32" cy="32" rx="19" ry="11.5" fill="none" stroke="#38BDF8" stroke-width="4"/>
+          <circle cx="32" cy="32" r="5.5" fill="#38BDF8"/>
+        </svg>
+        <span class="text-lg font-extrabold tracking-tight">IDEO</span>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed text-slate-400">
+        Instituto Docente de Especialidades Oftalmológicas.
+        20 años siendo líderes en salud visual y cirugía oftalmológica en Maracaibo.
+      </p>
+      <div class="mt-5 flex gap-3">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram de IDEO"
+           class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 transition hover:bg-sky-500 hover:text-white"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook de IDEO"
+           class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 transition hover:bg-sky-500 hover:text-white"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://wa.me/584246802187" target="_blank" rel="noopener" aria-label="WhatsApp de IDEO"
+           class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 transition hover:bg-sky-500 hover:text-white"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <nav aria-label="Enlaces del sitio">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-white">Navegación</h3>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        <li><a class="transition hover:text-sky-400" href="#servicios">Especialidades</a></li>
+        <li><a class="transition hover:text-sky-400" href="#medicos">Cuerpo Médico</a></li>
+        <li><a class="transition hover:text-sky-400" href="#testimonios">Testimonios</a></li>
+        <li><a class="transition hover:text-sky-400" href="#ubicacion">Ubicación y Horarios</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h3 class="text-sm font-bold uppercase tracking-wider text-white">Contacto</h3>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        <li><i class="fa-solid fa-location-dot mr-2 text-sky-400" aria-hidden="true"></i> Calle 69A con Av. 17 – Baralt, Edificio IDEO, Maracaibo</li>
+        <li><i class="fa-solid fa-clock mr-2 text-sky-400" aria-hidden="true"></i> Lun–Vie 8:00–18:00 · Sáb 8:00–13:00</li>
+        <li><i class="fa-solid fa-phone mr-2 text-sky-400" aria-hidden="true"></i> <a class="tabular-nums hover:text-sky-400" href="tel:+584246802187">+58 424-680 2187</a></li>
+      </ul>
+      <a href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO." target="_blank" rel="noopener"
+         class="mt-5 inline-flex items-center gap-2 rounded-xl bg-sky-500 px-5 py-3 text-sm font-bold text-white transition hover:bg-sky-400">
+        <i class="fa-brands fa-whatsapp fa-icono" aria-hidden="true"></i> Agendar Cita Vía WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-slate-400 md:flex-row md:px-8">
+      <p>© 2026 Clínica IDEO · Instituto Docente de Especialidades Oftalmológicas. Todos los derechos reservados.</p>
+      <p>Maracaibo · Estado Zulia · Venezuela</p>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- ===================== BOTÓN FLOTANTE DE WHATSAPP ===================== -->
+<a id="wa-float" href="https://wa.me/584246802187?text=Hola%2C%20quisiera%20agendar%20una%20cita%20en%20IDEO."
+   target="_blank" rel="noopener"
+   class="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 rounded-full bg-[#25D366] py-3 pl-4 pr-5 font-bold text-white shadow-lift transition duration-300 hover:bg-[#1ebe5b] hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
+   aria-label="Agendar Cita Vía WhatsApp">
+  <i class="fa-brands fa-whatsapp text-2xl" aria-hidden="true"></i>
+  <span class="hidden text-sm sm:inline">Agendar Cita Vía WhatsApp</span>
+  <span class="absolute -right-1 -top-1 flex h-4 w-4" aria-hidden="true">
+    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
+    <span class="relative inline-flex h-4 w-4 rounded-full border-2 border-white bg-[#25D366]"></span>
+  </span>
+</a>
+
+<!-- ===================== JAVASCRIPT (defer, minúsculo) ===================== -->
+<script>
+(function () {
+  'use strict';
+
+  /* --- Menú móvil accesible --- */
+  var btn = document.getElementById('btn-menu');
+  var menu = document.getElementById('menu-movil');
+  if (btn && menu) {
+    btn.addEventListener('click', function () {
+      var abierto = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(abierto));
+    });
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* --- Skeleton off cuando la imagen carga --- */
+  document.querySelectorAll('.media').forEach(function (m) {
+    var img = m.querySelector('.img');
+    if (!img) return;
+    var done = function () {
+      img.classList.add('is-loaded');
+      m.classList.add('done');
+    };
+    if (img.complete && img.naturalWidth > 0) done();
+    else img.addEventListener('load', done, { once: true });
+    img.addEventListener('error', function () { m.classList.add('done'); }, { once: true });
+  });
+
+  /* --- Reveal on scroll: IntersectionObserver (barato, sin listeners de scroll) --- */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* --- Header compacto al hacer scroll (rAF, sin layout thrash) --- */
+  var header = document.querySelector('header');
+  var lastY = -1;
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        if (y !== lastY && header) {
+          header.classList.toggle('shadow-lift', y > 8);
+          lastY = y;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
