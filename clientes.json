@@ -116,7 +116,7 @@
     "contacto": "",
     "email": "contacto@grupoicis.com",
     "telefono": "+58 412 3319326",
-    "estado": "Pendiente",
+    "estado": "Rechazado",
     "fecha": "2026-10-23"
   },
   {
@@ -266,8 +266,8 @@
     "contacto": "Atención general",
     "email": "contacto@ideo.com.ve",
     "telefono": "+58 424 6802187",
-    "estado": "Pendiente",
-    "fecha": "2026-10-23"
+    "estado": "En Negociación",
+    "fecha": "2026-10-24"
   },
   {
     "id": 28,
@@ -458,5 +458,55 @@
     "telefono": "+58 424 6792315",
     "estado": "Pendiente",
     "fecha": "2026-10-23"
+  },
+  {
+    "id": 47,
+    "empresa": "Computer Plaza S.A.",
+    "nicho": "computacion",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7998120",
+    "estado": "EnNegociación",
+    "fecha": "2026-10-24"
+  },
+  {
+    "id": 49,
+    "empresa": "Compudell S.A.",
+    "nicho": "computacion",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 7592315",
+    "estado": "EnNegociación",
+    "fecha": "2026-10-24"
+  },
+  {
+    "id": 52,
+    "empresa": "Tech Shop Centro Comercial",
+    "nicho": "computacion",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 424 6915687",
+    "estado": "EnNegociación",
+    "fecha": "2026-10-24"
+  },
+  {
+    "id": 56,
+    "empresa": "ElectroMax Comercios Varios",
+    "nicho": "negocio",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 261 8152176",
+    "estado": "EnNegociación",
+    "fecha": "2026-10-24"
+  },
+  {
+    "id": 61,
+    "empresa": "Abras Inicial Comercio",
+    "nicho": "negocio",
+    "contacto": "",
+    "email": "",
+    "telefono": "+58 414 6005123",
+    "estado": "EnNegociación",
+    "fecha": "2026-10-24"
   }
 ]
